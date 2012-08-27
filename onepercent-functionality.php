@@ -118,8 +118,17 @@ function rwi_onepercent_companies_participating() {
 	
 	$output .= '<ul class="onepercent-companies">';
 	
+	$i = 0;
+	
 	while ( $participating->have_posts() ) : $participating->the_post();
-		$output .= '<li class="company">' . get_the_post_thumbnail( get_the_ID(), 'thumbnail' ) . '</li>';
+		
+		$i++;
+		if ( $i % 3 == 0 ) { 
+			$class = ' third'; 
+		}
+		
+		$output .= '<li class="company' . $class . ' num-' . $i . '">' . get_the_post_thumbnail( get_the_ID(), 'thumbnail' ) . '</li>';
+	
 	endwhile;
 	
 	$output .= '</ul>';
