@@ -6,9 +6,9 @@ Description: Provides non-theme functionality to the One Percent Pledge site on 
 */
 
 // Register the post types we need.
-add_action( 'init', 'rwi_onepercent_post_types' );
+add_action( 'init', 'rwi_onepercent_content_types' );
 
-function rwi_onepercent_post_types() {
+function rwi_onepercent_content_types() {
 	
 	// We just need basic arguments to begin with.
 	$onepercent_company_args = array( 
@@ -20,10 +20,20 @@ function rwi_onepercent_post_types() {
 		// The primary use of this site is to list these companies off. So go ahead and put it above Posts, in this case.
 		'menu_position' => 3,
 		'public' => true,
-		'show_in_menu_bar' => false
+		'show_in_menu_bar' => false,
+		'supports' => array( 'title', 'editor', 'thumbnail' ),
+		// Supports our custom taxonomy.
+		'taxonomies' => array( 'onepercent_contributiontype' )
+	);
+	
+	$onepercent_contributiontype_args = array(
+		'hierarchical' => true,
+		'show_ui' => true,
+		'rewrite' => array( 'slug' => 'type' )
 	);
 	
 	register_post_type( 'onepercent_company', $onepercent_company_args );
+	register_taxonomy( 'onepercent_contributiontype', 'onepercent_company', $onepercent_contributiontype_args );
 	
 }
 
