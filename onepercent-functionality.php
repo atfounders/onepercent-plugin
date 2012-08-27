@@ -14,6 +14,8 @@ function rwi_onepercent_post_types() {
 	$onepercent_company_args = array( 
 		'exclude_from_search' => true,
 		'label' => 'Companies',
+		// Adds the menu icon for our new post type.
+		'menu_icon' => plugins_url( 'images/icon-briefcase.png', __FILE__ ),
 		// The primary use of this site is to list these companies off. So go ahead and put it above Posts, in this case.
 		'menu_position' => 3,
 		'public' => true,
@@ -34,5 +36,18 @@ function rwi_onepercent_dashboard_simplify() {
 	remove_menu_page( 'edit.php');
 	remove_menu_page( 'edit-comments.php' );
 	remove_menu_page( 'users.php' );
+	
+}
+
+
+// Remove admin bar links we don't need either
+add_action( 'wp_before_admin_bar_render', 'rwi_onepercent_admin_bar_render' );
+
+function rwi_onepercent_admin_bar_render() {
+	
+	global $wp_admin_bar;
+	
+	$wp_admin_bar->remove_menu( 'comments' );
+	$wp_admin_bar->remove_menu( 'new-content' );
 	
 }
