@@ -14,7 +14,20 @@ function rwi_onepercent_content_types() {
 	$onepercent_company_args = array( 
 		'capability_type' => 'page',
 		'exclude_from_search' => true,
-		'label' => 'Companies',
+		'labels' => array(
+			'name' => 'Companies',
+			'singular_name' => 'Company',
+			'add_new' => 'Add New',
+			'all_items' => 'All Companies',
+			'add_new_item' => 'Add New Company',
+			'edit_item' => 'Edit Company',
+			'new_item' => 'New Company',
+			'view_item' => 'View Company',
+			'search_items' => 'Search Companies',
+			'not_found' => 'No companies found',
+			'not_found_in_trash' => 'No companies found in Trash',
+			'parent_item_colon' => 'Parent Company'
+		),
 		// Adds the menu icon for our new post type.
 		'menu_icon' => plugins_url( 'images/icon-briefcase.png', __FILE__ ),
 		// The primary use of this site is to list these companies off. So go ahead and put it above Posts, in this case.
@@ -28,6 +41,19 @@ function rwi_onepercent_content_types() {
 	
 	$onepercent_contributiontype_args = array(
 		'hierarchical' => true,
+		'labels' => array(
+			'name' => 'Contribution Types',
+			'singular_name' => 'Contribution Type',
+			'search_items' => 'Search Types',
+			'popular_items' => 'Popular Types',
+			'all_items' => 'All Types',
+			'parent_item' => 'Parent Type',
+			'parent_item_colon' => 'Parent Type',
+			'edit_item' => 'Edit Type',
+			'update_item' => 'Update Type',
+			'add_new_item' => 'Add New Type',
+			'new_item_name' => 'New Type Name'
+		),
 		'show_ui' => true,
 		'rewrite' => array( 'slug' => 'type' )
 	);
