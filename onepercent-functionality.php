@@ -52,3 +52,15 @@ function rwi_onepercent_admin_bar_render() {
 	$wp_admin_bar->remove_menu( 'new-content' );
 	
 }
+
+
+// Credit The Noun Project for the use of their briefcase icon in our dashboard menu.
+add_filter( 'admin_footer_text', 'rwi_onepercent_dashboard_footer' );
+
+function rwi_onepercent_dashboard_footer() {
+	
+	echo 'Thank you for creating with <a href="http://wordpress.org/">WordPress</a>.<br />&ldquo;Briefcase&rdquo; symbol from <a href="http://thenounproject.com/">The Noun Project</a> collection.';
+	
+	//Thank you for creating with <a href="http://wordpress.org/">WordPress</a>.
+	
+}
