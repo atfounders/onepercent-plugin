@@ -31,6 +31,8 @@ add_action( 'admin_menu', 'rwi_onepercent_dashboard_simplify' );
 function rwi_onepercent_dashboard_simplify() {
 	
 	remove_menu_page( 'link-manager.php' );
-	remove_menu_page( 'edit.php?post_type=page');
+	remove_menu_page( 'edit.php');
+	remove_menu_page( 'edit-comments.php' );
+	remove_menu_page( 'users.php' );
 	
 }
