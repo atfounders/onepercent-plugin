@@ -12,6 +12,7 @@ function rwi_onepercent_post_types() {
 	
 	// We just need basic arguments to begin with.
 	$onepercent_company_args = array( 
+		'capability_type' => 'page',
 		'exclude_from_search' => true,
 		'label' => 'Companies',
 		// Adds the menu icon for our new post type.
