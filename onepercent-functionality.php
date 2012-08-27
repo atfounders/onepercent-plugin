@@ -100,3 +100,46 @@ function rwi_onepercent_dashboard_footer() {
 	//Thank you for creating with <a href="http://wordpress.org/">WordPress</a>.
 	
 }
+
+
+// Create shortcode for displaying participating companies
+add_shortcode( 'onepercent-companies', 'rwi_onepercent_companies_participating' );
+
+function rwi_onepercent_companies_participating() {
+	
+	$args = array(
+	
+		'post_type' => 'onepercent_company',
+		'posts_per_page' => -1
+		
+	);
+	
+	$participating = new WP_Query( $args );
+	
+	$output .= '<ul class="onepercent-companies">';
+	
+	while ( $participating->have_posts() ) : $participating->the_post();
+		$output .= '<li class="company">' . get_the_post_thumbnail( get_the_ID(), 'thumbnail' ) . '</li>';
+	endwhile;
+	
+	$output .= '</ul>';
+	
+	return $output;
+	
+	wp_rest_postdata();
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
